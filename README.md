@@ -10,7 +10,7 @@ Thanks to
 
 ## Usage as command
 
-Command name is cpug and it look like this measure 30 times then start over to stop press ctrl-c
+Command name is **cpug** and it look like this measure 30 times then start over to stop press ctrl-c
 
 ```
 > cpug
