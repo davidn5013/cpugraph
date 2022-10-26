@@ -55,4 +55,8 @@ go mod tidy
 
 and then save the go file and the import pops up
 
+## Todo
 
+- [ ] Stop blinking
+- [ ] Graph border
+- [ ] Draw without clearing screen
