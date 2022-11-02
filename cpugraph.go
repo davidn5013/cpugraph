@@ -2,11 +2,11 @@
 package cpugraph
 
 import (
-	"fmt"
 	"math"
 	"time"
 
 	"github.com/guptarohit/asciigraph"
+	"github.com/pterm/pterm"
 	"github.com/shirou/gopsutil/cpu"
 )
 
@@ -24,15 +24,21 @@ func GetCpuUsage() (usedPercent float64) {
 // length is the number measure point before graph start over
 func PlotCGrap(length int) {
 	data := make([]float64, length)
+
+	// Turn off cursor
+	pterm.Println("\033[?25l")
+
+	// Using pterm Area to stopp the blink
+	area, _ := pterm.DefaultArea.WithCenter().Start() // Start the Area printer, with the Center option.
+
 	for /*ever*/ {
 		for i := 0; i < length; i++ {
 			plot := asciigraph.Plot(data)
-			fmt.Println(plot)
+			area.Update(plot) // pterm update Area contents.
 			data[i] = math.Floor(GetCpuUsage())
-			asciigraph.Clear()
 		}
-		for i := 0; i < length; i++ {
-			data[i] = 0
-		}
+		// for i := 0; i < length; i++ {
+		// 	data[i] = 0
+		// }
 	}
 }

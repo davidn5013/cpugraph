@@ -4,5 +4,5 @@ package main
 import "github.com/david5013/cpugraph"
 
 func main() {
-	cpugraph.PlotCGrap(30)
+	cpugraph.PlotCGrap(70)
 }
